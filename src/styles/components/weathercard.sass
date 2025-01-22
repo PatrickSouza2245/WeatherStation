@@ -1,0 +1,42 @@
+@use '../variables'
+@use '../mixins'
+
+.weather-card-container
+    @include mixins.center
+    display: flex
+    flex-direction: column
+    gap: 10px
+
+    p
+        font-size: 17px
+
+    #searchCity
+        width: 250px
+        height: 30px
+        padding: 5px
+        margin: 5px
+        font-size: 17px
+        outline: none
+        border: none
+        background: variables.$bg-color
+
+        &::placeholder
+            color: #00000063
+            font-size: 15px
+
+    .btnSearch
+        font-size: 25px
+        background-color: transparent
+        border: 0
+        padding: 10px
+        cursor: pointer
+        transition: transform 0.5s
+
+        &:hover
+            transform: scale(1.2)
+
+    .search-container
+        @include mixins.center
+        background: variables.$bg-color
+        border-radius: 10px
+        margin: 5px
