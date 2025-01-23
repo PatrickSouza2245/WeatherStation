@@ -40,3 +40,42 @@
         background: variables.$bg-color
         border-radius: 10px
         margin: 5px
+
+    .result-weather
+        width: 70rem
+        height: 28rem
+        padding: 25px
+        @include mixins.center
+        justify-content: start
+        flex-direction: column
+        background-color: #e7e7e7
+        border-radius: 10px
+        gap: 15px
+        
+        p:nth-child(1)
+            font-size: 40px
+            font-weight: 600
+
+        p:nth-child(2)
+            font-size: 20px
+            text-transform: capitalize
+
+        p:nth-child(3)
+            font-size: 65px
+            position: relative
+            top: 55px
+
+        .resultInfo
+            width: 900px
+            height: 65px
+            position: relative
+            top: 130px
+            text-align: center
+            display: flex
+            justify-content: space-around
+            align-items: flex-end
+        
+            p
+                font-size: 20px
+                position: static
+                font-weight: normal

@@ -10,8 +10,8 @@ const WeatherCard = () => {
   const [city, setCity] = useState('')
   const [weather, setWeather] = useState(null)
   
-  const API_KEY = import.meta.env.API_KEY
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+  const API_KEY = import.meta.env.VITE_API_KEY
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&lang=pt_br&units=metric`
 
   const handleSearch = async () => {
     if(city === ''){
@@ -27,8 +27,11 @@ const WeatherCard = () => {
   }
     try{
     const res = await axios.get(url)
-    setWeather(res.data)
+    setWeather(res.data) 
+    console.log(res);
+       
     setCity('')
+    
     toast.success("Cidade encontrada com sucesso!", {
       position: "top-right",
       theme: "colored",
@@ -59,7 +62,16 @@ const WeatherCard = () => {
 
         { weather &&
         <div className='result-weather'>
-          <p>{weather.name}</p>
+          <p>{weather.name} - {weather.sys.country}</p>
+          <p><b>Clima:</b> {weather.weather[0].description}</p>
+          <p>{(weather.main.temp).toFixed(0)}°C</p>
+          <p>Min: {(weather.main.temp_min).toFixed(0)}</p>
+          <p>Max: {(weather.main.temp_max).toFixed(0)}</p>
+          <div className='resultInfo'>
+            <p>Sensação Térmica: {(weather.main.feels_like).toFixed(0)}°C</p>
+            <p>Umidade: {weather.main.humidity}%</p>
+            <p>Pressão: {weather.main.pressure} hPa</p>
+          </div>
         </div>  
         }
     </div>
