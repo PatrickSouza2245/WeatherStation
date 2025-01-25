@@ -50,7 +50,14 @@
         flex-direction: column
         background-color: #e7e7e7
         border-radius: 10px
-        gap: 15px
+        gap: 20px
+        opacity: 0
+        transform: translateY(-20px)
+        transition: all 0.5s ease-in-out
+
+        &.visible
+            opacity: 1
+            transform: translateY(0)
         
         p:nth-child(1)
             font-size: 40px
@@ -63,13 +70,22 @@
         p:nth-child(3)
             font-size: 65px
             position: relative
-            top: 55px
+            top: 45px
+
+        p:nth-child(4)
+            position: relative
+            right: 80px
+            top: 40px
+
+        p:nth-child(5)
+            position: relative
+            left: 80px
 
         .resultInfo
             width: 900px
             height: 65px
             position: relative
-            top: 130px
+            top: 50px
             text-align: center
             display: flex
             justify-content: space-around
@@ -79,3 +95,13 @@
                 font-size: 20px
                 position: static
                 font-weight: normal
+
+footer
+  width: 100%
+  text-align: center
+  padding: 15px 0
+  background-color: #f3f3f3
+  color: #555
+  font-size: 14px
+  position: fixed
+  bottom: 0
